@@ -8,7 +8,7 @@ $connections = array(
     
     "local" => array(
         "url" => "mysite.local",
-        "db_name" => "wp_catherinebruton",
+        "db_name" => "local_db",
         "db_user" => "root",
         "db_password" => "root",
         "db_host" => "localhost",
@@ -28,7 +28,7 @@ $connections = array(
         "db_user" => "root",
         "db_password" => "root",
         "db_host" => "localhost",
-        "show_errors" => 1
+        "show_errors" => 0
     )
 );
 
@@ -64,27 +64,27 @@ define( 'WP_CONTENT_URL', '/content');
 /* Force WP to upload within the GUI, even if it thinks it can't */
 define('FS_METHOD', 'direct');
 
-foreach($connections as $env => $details){
+foreach($connections as $env){
 
-    if($_SERVER['SERVER_NAME'] == $details["url"]){
+    if($_SERVER['SERVER_NAME'] == $env["url"]){
         
-        define('WP_HOME', "http://".$details["url"]);
+        define('WP_HOME', "http://".$env["url"]);
         
         /** The name of the database for WordPress */
-        define('DB_NAME', $details["db_name"]);
+        define('DB_NAME', $env["db_name"]);
         
         /** MySQL database username */
-        define('DB_USER', $details["db_user"]);
+        define('DB_USER', $env["db_user"]);
         
         /** MySQL database password */
-        define('DB_PASSWORD', $details["db_password"]);
+        define('DB_PASSWORD', $env["db_password"]);
         
         /** MySQL hostname */
-        define('DB_HOST', $details["db_host"]);
+        define('DB_HOST', $env["db_host"]);
         
-        ini_set("display_errors", $details["show_errors"]);
+        ini_set("display_errors", $env["show_errors"]);
         
-        define('WP_DEBUG', ($details["show_errors"]) ? true : false);
+        define('WP_DEBUG', ($env["show_errors"]) ? true : false);
         
         break;
     }
