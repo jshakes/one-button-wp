@@ -66,7 +66,7 @@ define('FS_METHOD', 'direct');
 
 foreach($connections as $env){
 
-    if($_SERVER['SERVER_NAME'] == $env["url"]){
+    if(false !== strpos($_SERVER['SERVER_NAME'], $env["url"])){
         
         define('WP_HOME', "http://".$env["url"]);
         
