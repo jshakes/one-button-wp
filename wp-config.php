@@ -7,26 +7,26 @@
 $connections = array(
     
     "local" => array(
-        "url" => "mysite.local",
-        "db_name" => "local_db",
+        "url" => "jsv2.localhost",
+        "db_name" => "jsv2_dev",
         "db_user" => "root",
         "db_password" => "root",
         "db_host" => "localhost",
         "show_errors" => 1
     ),
     "staging" => array(
-        "url" => "staging.mysite.com",
-        "db_name" => "staging_db",
-        "db_user" => "root",
-        "db_password" => "root",
+        "url" => "jsv2.jshakespeare.com",
+        "db_name" => "jsv2_staging",
+        "db_user" => "james",
+        "db_password" => "_greatgatsby1925",
         "db_host" => "localhost",
         "show_errors" => 1
     ),
     "production" => array(
         "url" => "mysite.com",
-        "db_name" => "local_db",
-        "db_user" => "root",
-        "db_password" => "root",
+        "db_name" => "jsv2_prod",
+        "db_user" => "james",
+        "db_password" => "_greatgatsby1925",
         "db_host" => "localhost",
         "show_errors" => 0
     )
@@ -66,7 +66,7 @@ define('FS_METHOD', 'direct');
 
 foreach($connections as $env){
 
-    if($_SERVER['SERVER_NAME'] == $env["url"]){
+    if(strpos($_SERVER['SERVER_NAME'], $env["url"]) !== false){
         
         define('WP_HOME', "http://".$env["url"]);
         
