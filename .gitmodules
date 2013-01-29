@@ -3,4 +3,4 @@
 	url = git://github.com/WordPress/WordPress.git
 [submodule "content/themes/Vanilla"]
 	path = content/themes/Vanilla
-	url = https://github.com/jshakes/Vanilla.git
+	url = git://github.com/jshakes/Vanilla.git
