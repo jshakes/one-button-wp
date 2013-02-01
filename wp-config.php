@@ -15,7 +15,7 @@ $connections = array(
         "show_errors" => 1
     ),
     "staging" => array(
-        "url" => "jsv2.jshakespeare.com",
+        "url" => "dev.jshakespeare.com",
         "db_name" => "jsv2_staging",
         "db_user" => "james",
         "db_password" => "_greatgatsby1925",
